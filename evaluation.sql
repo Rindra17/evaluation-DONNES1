@@ -8,3 +8,12 @@ select Employee.id, Employee.first_name, Employee.last_name from Employee
 
 select Employee.id, Employee.first_name, Employee.last_name from Employee
   where id_leave is null;
+
+--3
+
+select Leave.id as id_conge, Leave.start_date as debut_conge, Leave.end_date as fin_conge,
+  Employee.first_name as prenom, Employee.last_name as nom,
+  Team.name as equipe
+  from Leave
+  inner join Employee on leave.id = Employee.id_leave
+  left join Team on Employee.id = Team.id_employee;
