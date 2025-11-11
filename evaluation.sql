@@ -17,3 +17,9 @@ select Leave.id as id_conge, Leave.start_date as debut_conge, Leave.end_date as 
   from Leave
   inner join Employee on leave.id = Employee.id_leave
   left join Team on Employee.id = Team.id_employee;
+
+--4
+
+select contract_type as type_contrat, count(*) as nombre_employes
+  from Employee
+  group by contract_type;
