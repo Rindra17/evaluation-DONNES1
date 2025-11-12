@@ -23,3 +23,10 @@ select Leave.id as id_conge, Leave.start_date as debut_conge, Leave.end_date as 
 select contract_type as type_contrat, count(*) as nombre_employes
   from Employee
   group by contract_type;
+
+--5
+
+select count(Employee.id) as nombre_employes_conge
+  from Employee
+  inner join Leave on Employee.id_leave = Leave.id
+  where getdate() betwen Leave.start_date and Leave.end_date;
