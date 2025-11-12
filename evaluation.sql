@@ -29,4 +29,13 @@ select contract_type as type_contrat, count(*) as nombre_employes
 select count(Employee.id) as nombre_employes_conge
   from Employee
   inner join Leave on Employee.id_leave = Leave.id
-  where getdate() betwen Leave.start_date and Leave.end_date;
+  where current_date betwen Leave.start_date and Leave.end_date;
+
+--6
+
+select Employee.id, Employee.last_name as nom, Employee.first_name as prenom,
+  Team.name as equipe
+  from Employee
+  inner join Leave on Employee.id_leave = Leave.id
+  left join Team on Employee.id = Team.id_employee
+  where current_date betwen Leave.start_date and Leave.end_date;
